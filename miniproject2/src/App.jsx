@@ -6,7 +6,7 @@ function App() {
 	const [expenses, setExpenses] = useState([]);
 
 	const fetchExpenses = () => {
-		fetch("http://localhost:3002/expenses")
+		fetch("http://localhost:3003/expenses")
 			.then((res) => res.json())
 			.then(setExpenses);
 	};
