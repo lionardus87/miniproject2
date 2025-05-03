@@ -8,10 +8,11 @@ const {
 } = require("../controller/expenses");
 
 router.get("/", (req, res) => {
-	res.send(getExpenses());
+	res.json(getExpenses());
 });
 
 router.post("/new", (req, res) => {
+	console.log("Incoming POST body:", req.body);
 	const { title, desc, amount, category } = req.body;
 	const expense = addAExpense(title, desc, amount, category);
 	if (!expense) res.send(403);
