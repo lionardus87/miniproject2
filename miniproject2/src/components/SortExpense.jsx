@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 
-export default function ExpenseSort({ setSortOption }) {
+export default function SortExpense({ setSortOption }) {
 	const handleSort = (option) => {
 		setSortOption(option);
 	};

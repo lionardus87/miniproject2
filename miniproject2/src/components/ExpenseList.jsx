@@ -9,12 +9,14 @@ export default function ExpenseList({
 	return (
 		<div className="row">
 			{expenses.map((expense) => (
-				<ExpenseCard
-					key={expense.id}
-					data={expense}
-					setEditExpense={setEditExpense}
-					fetchExpenses={fetchExpenses}
-				/>
+				<div className="col-12 col-sm-5 col-md-4 col-lg-3 mb-4 " key={expense.id}>
+					<ExpenseCard
+						key={expense.id}
+						data={expense}
+						setEditExpense={setEditExpense}
+						fetchExpenses={fetchExpenses}
+					/>
+				</div>
 			))}
 		</div>
 	);
