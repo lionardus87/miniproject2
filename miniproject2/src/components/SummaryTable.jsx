@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import { CalculateExpenses } from "../utilities/CalculateExpenses";
+import { CalculateExpenses } from "../utils/CalculateExpenses";
 
 export default function SummaryTable({ expenses, fetchExpenses }) {
 	const { paid, unpaid, totalPaid, totalUnpaid } = CalculateExpenses(expenses);
@@ -30,7 +30,8 @@ export default function SummaryTable({ expenses, fetchExpenses }) {
 				<td>${parseFloat(exp.amount).toFixed(2)}</td>
 				<td>{exp.category}</td>
 				<td>
-					<InputGroup.Checkbox
+					<input
+						type="checkbox"
 						checked={exp.paid}
 						onChange={() => togglePaidStatus(exp)}
 						aria-label="Mark as paid/unpaid"

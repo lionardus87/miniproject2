@@ -29,6 +29,7 @@ export default function AddExpense({
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		console.log("");
 		const url = editExpense
 			? `http://localhost:3003/expenses/${editExpense.id}`
 			: "http://localhost:3003/expenses/new";
@@ -86,13 +87,16 @@ export default function AddExpense({
 						<option value="Entertainment">Entertainment</option>
 						<option value="Groceries">Groceries</option>
 					</select>
+					{/* <button className="btn btn-primary" type="submit">
+						{editExpense ? "Update" : "Add"} Expenses
+					</button> */}
 				</form>
 			</Modal.Body>
 
 			<Modal.Footer>
 				<Button variant="secondary">Close</Button>
-				<button className="btn btn-primary" type="submit">
-					{editExpense ? "Update" : "Add"} Expense
+				<button className="btn btn-primary" onClick={handleSubmit}>
+					{editExpense ? "Update" : "Add"} Expenses
 				</button>
 			</Modal.Footer>
 		</Modal>
