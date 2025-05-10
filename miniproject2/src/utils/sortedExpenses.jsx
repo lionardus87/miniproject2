@@ -4,12 +4,14 @@ export function sortedExpenses(
 ) {
 	let sorted = [...expenses];
 
+	//Filter by Category
 	if (filterOption && filterOption !== "allCategories") {
 		sorted = sorted.filter(
 			(expense) => expense.category.toLowerCase() === filterOption.toLowerCase()
 		);
 	}
 
+	//Filter by Search
 	if (searchQuery !== "") {
 		sorted = sorted.filter((expense) => {
 			const query = searchQuery.toLocaleLowerCase();
@@ -22,6 +24,7 @@ export function sortedExpenses(
 		});
 	}
 
+	//Sorting
 	if (sortOption === "price-asc") {
 		sorted.sort((a, b) => parseFloat(a.amount) - parseFloat(b.amount));
 	} else if (sortOption === "price-desc") {

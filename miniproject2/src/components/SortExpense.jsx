@@ -15,6 +15,9 @@ export default function SortExpense({ setSortOption }) {
 				<Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
 
 				<Dropdown.Menu>
+					<Dropdown.Item onClick={() => handleSort("default")}>
+						Default
+					</Dropdown.Item>
 					<Dropdown.Item onClick={() => handleSort("price-asc")}>
 						Low to High
 					</Dropdown.Item>

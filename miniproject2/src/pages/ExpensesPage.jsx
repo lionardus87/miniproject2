@@ -7,7 +7,7 @@ import SearchExpense from "../components/SearchExpense";
 import { sortedExpenses } from "../utils/sortedExpenses";
 import Button from "react-bootstrap/Button";
 
-function Home() {
+function ExpensesPage() {
 	const {
 		expenses,
 		showModal,
@@ -71,4 +71,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default ExpensesPage;
