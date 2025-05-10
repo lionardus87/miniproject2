@@ -1,6 +1,6 @@
 import { useExpense } from "../contexts/ExpenseContext";
 import ExpenseList from "../components/ExpenseList";
-import AddExpense from "../components/AddExpense";
+import AddingExpense from "../components/AddingExpense";
 import SortExpense from "../components/SortExpense";
 import FilterExpense from "../components/FilterExpense";
 import SearchExpense from "../components/SearchExpense";
@@ -49,7 +49,7 @@ function ExpensesPage() {
 				Add Expense
 			</Button>
 
-			<AddExpense
+			<AddingExpense
 				show={showModal}
 				handleClose={handleCloseModal}
 				fetchExpenses={fetchExpenses}

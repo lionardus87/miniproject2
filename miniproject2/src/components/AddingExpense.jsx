@@ -1,29 +1,46 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import ExpenseModal from "./ExpenseModal";
 
-export default function AddExpense({
+const initialData = [
+	{
+		title: "",
+		amount: "",
+		desc: "",
+		category: "",
+	},
+];
+
+const formReducer = (state, action) => {
+	switch (action.type) {
+		case "Set_Field":
+			return { ...state, [action.field]: action.value };
+		case "Set_Form":
+			return action.load;
+		case "Reset_Form":
+			return initialData;
+		default:
+			return state;
+	}
+};
+
+export default function AddingExpense({
 	fetchExpenses,
 	editExpense,
 	show,
 	handleClose,
 }) {
-	const [formData, setFormData] = useState({
-		title: "",
-		amount: "",
-		desc: "",
-		category: "",
-	});
+	const [formData, dispatch] = useReducer(formReducer, initialData);
+
 	useEffect(() => {
 		if (editExpense) {
-			setFormData(editExpense);
+			dispatch({ type: "Set_Form", load: editExpense });
 		} else {
-			setFormData({ title: "", amount: "", desc: "", category: "" });
+			dispatch({ type: "Reset_Form" });
 		}
 	}, [editExpense]);
 
 	const handleChange = (e) => {
-		setFormData({ ...formData, [e.target.name]: e.target.value });
+		dispatch({ type: "Set_Field", field: e.target.name, value: e.target.value });
 	};
 
 	const handleSubmit = async (e) => {
