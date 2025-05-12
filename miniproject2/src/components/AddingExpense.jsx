@@ -12,7 +12,7 @@ const initialData = [
 
 const formReducer = (state, action) => {
 	switch (action.type) {
-		case "Set_Field":
+		case "Set_Data":
 			return { ...state, [action.field]: action.value };
 		case "Set_Form":
 			return action.load;
@@ -40,7 +40,7 @@ export default function AddingExpense({
 	}, [editExpense]);
 
 	const handleChange = (e) => {
-		dispatch({ type: "Set_Field", field: e.target.name, value: e.target.value });
+		dispatch({ type: "Set_Data", field: e.target.name, value: e.target.value });
 	};
 
 	const handleSubmit = async (e) => {
@@ -49,8 +49,8 @@ export default function AddingExpense({
 		const url = editExpense
 			? `http://localhost:3003/expenses/${editExpense.id}`
 			: "http://localhost:3003/expenses/new";
-
 		const method = editExpense ? "PUT" : "POST";
+
 		await fetch(url, {
 			method,
 			headers: { "Content-Type": "application/json" },

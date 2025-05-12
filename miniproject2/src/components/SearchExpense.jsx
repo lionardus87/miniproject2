@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useExpense } from "../contexts/ExpenseContext";
 
-export default function SearchExpense({ onSearch }) {
+export default function SearchExpense() {
 	const [searchOption, setSearchOption] = useState("");
+	const { dispatch } = useExpense();
+
 	const handleChange = (e) => {
 		setSearchOption(e.target.value);
 	};
 	const handleSearch = (e) => {
 		e.preventDefault();
-		onSearch(searchOption);
+		// onSearch(searchOption);
+		dispatch({ type: "SetSearchQuery", payload: searchOption });
 	};
 	return (
 		<form className="d-flex ms-auto" role="search" onSubmit={handleSearch}>
