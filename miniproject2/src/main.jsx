@@ -5,13 +5,14 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ExpenseProvider } from "./contexts/ExpenseContext.jsx";
+import AppRouter from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
-	<ExpenseProvider>
-		<BrowserRouter>
-			<StrictMode>
-				<App />
-			</StrictMode>
-		</BrowserRouter>
-	</ExpenseProvider>
+	<StrictMode>
+		<ExpenseProvider>
+			<BrowserRouter>
+				<AppRouter />
+			</BrowserRouter>
+		</ExpenseProvider>
+	</StrictMode>
 );

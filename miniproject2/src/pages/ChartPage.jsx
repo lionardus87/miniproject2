@@ -1,5 +1,3 @@
-// import React, { useState, useEffect } from "react";
-
 import { useExpense } from "../contexts/ExpenseContext";
 import {
 	Chart as ChartJS,
@@ -22,16 +20,8 @@ ChartJS.register(
 );
 
 function ChartPage() {
-	// const [expenses, setExpenses] = useState([]);
-
-	// useEffect(() => {
-	// 	// Fetch expenses from backend
-	// 	fetch("http://localhost:3003/expenses")
-	// 		.then((res) => res.json())
-	// 		.then((data) => setExpenses(data))
-	// 		.catch((err) => console.error("Failed to fetch expenses:", err));
-	// }, []);
 	const { expenses } = useExpense();
+
 	const data = {
 		labels: expenses.map((e) => e.title),
 		datasets: [

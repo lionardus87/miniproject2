@@ -5,7 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import NavBar from "./components/NavBar";
 import ChartPage from "./pages/ChartPage";
 
-function App() {
+function AppRouter() {
 	return (
 		<>
 			<NavBar />
@@ -19,4 +19,4 @@ function App() {
 	);
 }
 
-export default App;
+export default AppRouter;
